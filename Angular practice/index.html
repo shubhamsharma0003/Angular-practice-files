@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
 	<title>Angular practice</title>
 	<meta charset="utf-8">
@@ -20,22 +20,27 @@
 
 </head>
 
-<body ng-app="app" >
+<body>
 	
 	<div class="mainPage" ng-controller="formController">
-		<div class="form" >
+		<!-- <div class="form" >
 			Username: {{user.name}} <br>
 			E-mail: {{user.email}} 
-		</div>
+		</div> -->
 
-		<div class="data">
-			Here is the data from the JSON file : {{data}} <br>
-			Name : {{names}} <br>
-			Users array : {{users}} <br>
+	<!-- 	<div class="data">
 			Names list : 
 			<select name="select" id="select" ng-model="item" ng-options="datas as datas.name for datas in users">
 			</select>
-		</div>
+
+		</div> -->
+
+		Twitter handle: <input type="text" ng-model="handle"> <br>
+		<h2>twitter.com/{{ lowercasehandle() }}</h2> <br><br>
+
+		<div class="alert" ng-class="{ 'alert-warning' : handle.length < maxlength }">Word length is less than 5</div>
+
+
 	</div>
 	
 
@@ -49,6 +54,11 @@
 
 	<!-- ANGULAR JS -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+
+	<!-- <script>window.angular || document.write('<script src = "content/js/Angular.js" charset="utf-8"><\/script>');</script> -->
+
+	<!-- ngMessages -->
+	<!-- <script type = "text/javascript" src = "https://code.angularjs.org/1.5.7/angular-messages.js"></script> -->
 
 	<!-- APP JS -->
 	<script type="text/javascript" src="app/app.js"></script>
